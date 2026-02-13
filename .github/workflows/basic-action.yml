@@ -1,0 +1,13 @@
+name: Basic Workflow
+
+on: workflow_dispatch
+
+jobs:
+  basic-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First action step
+        run: echo "First Basic Action Triggered"
+
+      - name: Second action step
+        run: echo "Second Basic Action Triggered"
