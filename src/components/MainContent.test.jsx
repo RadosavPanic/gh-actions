@@ -12,7 +12,6 @@ describe("MainContent", () => {
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
-  // Div should not be visible before clicking the button
   it("should show the help area after clicking the button", async () => {
     render(<MainContent />);
 
