@@ -1,22 +1,24 @@
 name: Deploy Project 3
 
-on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-    branches:
-      - main
-      - "dev-*"
-      - "feat/**"
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-      - "dev-*"
-      - "feat/**"
-    paths-ignore:
-      - ".github/workflows/*"
+on: workflow_dispatch
+
+# on:
+#   pull_request:
+#     types:
+#       - opened
+#       - reopened
+#     branches:
+#       - main
+#       - "dev-*"
+#       - "feat/**"
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - main
+#       - "dev-*"
+#       - "feat/**"
+#     paths-ignore:
+#       - ".github/workflows/*"
 
 jobs:
   lint:
