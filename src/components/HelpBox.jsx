@@ -1,5 +1,6 @@
 import "./HelpBox.css";
 import React from "react";
+import PropTypes from "prop-types";
 
 function HelpBox({ title, text }) {
   return (
