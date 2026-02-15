@@ -11,5 +11,9 @@ jobs:
           echo "Action: ${{ github.event.action }}"
           echo "Issue Title: ${{ github.event.issue.title }}"
           echo "Issue Body: ${{ github.event.issue.body }}"
-          echo "Issue Created at: ${{ github.event.issue.created_at }}"
+
+          created_at="${{ github.event.issue.created_at }}"
+          formatted_date=$(date -d "$created_at" +"%m/%d/%Y %I:%M %p %Z")
+
+          echo "Issue Created at: $formatted_date"
           echo "Issue URL: ${{ github.event.issue.html_url }}"
