@@ -1,4 +1,4 @@
-name: Deploy Project
+name: Deploy Project 2
 
 on: [push, workflow_dispatch]
 
