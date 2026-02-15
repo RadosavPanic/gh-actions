@@ -1,4 +1,4 @@
-# Deployment workflow with storing artifacts and multiple jobs
+# Deployment workflow with multiple jobs and artifact upload
 name: Deployment 4
 
 on:
