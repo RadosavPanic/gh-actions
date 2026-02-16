@@ -1,11 +1,9 @@
-name: Deployment 6
+name: Deployment with reusable workflow
 
-on: workflow_dispatch
-
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   lint:
@@ -56,11 +54,11 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        continue-on-error: true
         id: run-tests
         run: npm test
 
       - name: Upload test report
+        if: failure() && steps.run-tests.outcome == 'failure'
         uses: actions/upload-artifact@v5
         with:
           name: test-report
@@ -101,18 +99,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get build artifacts
-        uses: actions/download-artifact@v5
-        with:
-          name: dist-files
-
-      - name: Output contents
-        run: ls
-
-      - name: Deploy to production
-        run: echo "Deploying to production..."
+    uses: ./.github/workflows/reusable.yml
 
   report:
     needs: [lint, deploy]
