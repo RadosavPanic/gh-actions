@@ -105,3 +105,12 @@ jobs:
 
       - name: Deploy to production
         run: echo "Deploying to production..."
+
+  report:
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Otuput information
+        run: |
+          echo "Something went wrong"
+          echo "${{github}}"
